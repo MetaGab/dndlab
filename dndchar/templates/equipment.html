@@ -1,0 +1,27 @@
+<ul> 
+{% for eq in cl.get_equipment_options.all %}
+    <li>
+        {% for option in eq.selectable_features_set.all %}
+            <input type="radio" name="{{eq}}" value="{{option.id}}" disabled>
+            {% if option.content_object.is_choose and option.content_object.max_choose == 1 %}
+                <select name="{{eq.name}}_{{option.id}}" id="id_feature_{{eq.id}}" disabled>
+                {% for item in option.content_object.items.all %}
+                    <option value="{{item.id}}">{{item}}</option>
+                {% endfor %}
+                </select>
+            {% else %}
+                {% for item in option.content_object.items.all %}
+                    {{item}}</br>
+                {% endfor %}
+                {% for bundle in option.content_object.bundle.all %}
+                    <select name="{{eq.name}}_{{option.id}}_{{bundle.id}}" id="id_feature_{{eq.id}}" disabled>
+                    {% for item in bundle.items.all %}
+                        <option value="{{item.id}}">{{item}}</option>
+                    {% endfor %}
+                    </select>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.log
+
+# pyenv
+.python-version
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+.vscode
+
+.DS_Store
+*.sqlite3
+media/
+*.pyc
+*.db
+*.pid
+# django migrations 
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
