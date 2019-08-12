@@ -1,0 +1,1 @@
+web: gunicorn dndlab.wsgi --log-file -
